@@ -20,7 +20,9 @@ const AuthController = {
             if (results.length === 0) {
                 return res.status(401).json({ error: 'Credenciales incorrectas' });
             }
-
+            // Obtener el primer usuario de los resultados
+            const user = results[0];
+            // Verificar si el usuario está activo
             const isMatch = await Auth.verifyPassword(contrasena, user.contrasena);
             if(!isMatch) {
                 return res.status(401).json({ error: 'Credenciales incorrectas' });
