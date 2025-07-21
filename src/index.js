@@ -50,13 +50,7 @@ app.get('/', (req, res) => {
 });
 
 // Rutas
-app.use('/api/users', userRoutes);
-app.use('/api/auth', authRoutes);
-app.use('/api/permissions', permissionsRoutes);
-app.use('/api/tecnicos', tecnicoRoutes);
-app.use('/api/salas', salaRoutes);
-app.use('/api/tipopracticas', tipopracticaRoutes);
-app.use('/api/reservas', reservaRoutes);
+//app.use('/api/users', userRoutes);
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 4000;
