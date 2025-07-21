@@ -1,11 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const db = require('./config/db');
-//const routes = require('./routes/index.routes');
+const authRoutes = require('./routes/auth.routes');
 
+const db = require('./config/db');
 const app = express();
-const port = process.env.PORT || 4001;
 
 dotenv.config();
 
@@ -14,6 +13,8 @@ const allowedOrigins = process.env.CORS_ORIGINS
   ? process.env.CORS_ORIGINS.split(',').map(origin => origin.trim())
   : [];
 
+// Configuración de CORS
+// Permitir orígenes específicos o sin origen
 const corsOptions = {
   origin: function (origin, callback) {
     // Permitir sin origin (por ejemplo, en herramientas como curl o Postman)
@@ -50,10 +51,10 @@ app.get('/', (req, res) => {
 });
 
 // Rutas
-//app.use('/api/users', userRoutes);
+app.use('/api/auth', authRoutes);
 
 // Iniciar el servidor
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4001;
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
