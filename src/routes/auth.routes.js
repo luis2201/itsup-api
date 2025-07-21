@@ -4,6 +4,10 @@ const AuthController = require('../controllers/auth.controller');
 
 const router = express.Router();
 
+router.get('/', (req, res) => {
+  res.send('Ruta /api/auth activa');
+});
+
 router.post(
     '/login', 
     [
