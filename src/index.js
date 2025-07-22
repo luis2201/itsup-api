@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth.routes');
+const configuracionRoutes = require('./routes/configuracion.routes');
 
 const db = require('./config/db');
 const app = express();
@@ -52,6 +53,7 @@ app.get('/', (req, res) => {
 
 // Rutas
 app.use('/api/auth', authRoutes);
+app.use('/api/configuraciones', configuracionRoutes);
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 4001;

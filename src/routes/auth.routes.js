@@ -11,9 +11,10 @@ router.get('/', (req, res) => {
 router.post(
     '/login', 
     [
-        body('usuario').notEmpty().withMessage('El usuario es obligatorio'),
-        body('contrasena').notEmpty().withMessage('La contraseña es obligatoria')
+        body('usuario').isString().trim().notEmpty().withMessage('El usuario es obligatorio'),
+        body('contrasena').isString().trim().notEmpty().withMessage('La contraseña es obligatoria')
     ], 
-    AuthController.login);
+    AuthController.login
+);
 
 module.exports = router;

@@ -31,7 +31,7 @@ const AuthController = {
             const { idusuario, nombres, tipousuario } = user;
 
             const token = jwt.sign(
-                { idusuario, nombres, tipousuario },
+                { idusuario: user.idusuario, nombres: user.nombres, tipousuario: user.tipousuario },
                 process.env.JWT_SECRET,
                 { expiresIn: '2h' }
             );
