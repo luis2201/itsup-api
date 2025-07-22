@@ -13,6 +13,7 @@ const verifyToken = (req, res, next) => {
 
     // Verificar el formato del token
     const tokenParts = token.split(" ");
+    console.log("Partes del token: ", tokenParts.length)
     // Si el token no tiene dos partes (header y payload), retornar error
     if (tokenParts.length !== 2 || tokenParts[0] == "Bearer") {
         console.log('Formato de Token incorrecto');
