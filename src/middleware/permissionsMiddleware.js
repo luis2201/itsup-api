@@ -4,7 +4,7 @@ const Permissions = require('../models/permissions.model');
 const verifyPermissions = (req, res, next) => {
     // Verificar si el usuario está autenticado
     const { tipousuario } = req.user;
-    
+    console.log('Tipo de usuario:', tipousuario);
     // Verificar si el rol del usuario está definido
     Permissions.getpermissionsByRole(tipousuario, (err, results) => {
         // Manejar errores de la consulta
