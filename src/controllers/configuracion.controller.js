@@ -48,6 +48,28 @@ const ConfiguracionController = {
             
             res.json({ message: 'Configuración actualizada exitosamente' });
         });
+    },
+
+    deleteConfiguracion: (req, res) => {
+        const { id } = req.params;
+
+        Configuracion.deleteConfiguracion(id, (err) => {
+            if (err) {
+                return res.status(500).json({ error: 'Error al eliminar la configuración' });
+            }
+            return res.json({ message: 'Configuración eliminada exitosamente' });
+        });
+    },
+
+    activarConfiguracion: (req, res) => {
+        const { id } = req.params;
+
+        Configuracion.activarConfiguracion(id, (err) => {
+            if (err) {
+                return res.status(500).json({ error: 'Error al activar la configuración' });
+            }
+            return res.json({ message: 'Configuración activada exitosamente' });
+        });
     }
 
 };

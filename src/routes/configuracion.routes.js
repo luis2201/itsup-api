@@ -26,4 +26,8 @@ router.get('/:id', verifyToken, verifyRoles(['ADMINCESE']), ConfiguracionControl
 
 router.put('/:id', verifyToken, verifyRoles(['ADMINCESE']), ConfiguracionController.updateConfiguracion);
 
+router.delete('/:id', verifyToken, verifyRoles(['ADMINCESE']), ConfiguracionController.deleteConfiguracion);
+
+router.put('/:id/activar', verifyToken, verifyRoles(['ADMINCESE']), ConfiguracionController.activarConfiguracion);
+
 module.exports = router;

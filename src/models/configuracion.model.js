@@ -21,6 +21,14 @@ const Configuracion = {
         const { idperiodo, idcarrera, iddocente, horas_requeridas } = configuracionData;
 
         db.query("UPDATE cese_configuracion SET idperiodo = ?, idcarrera = ?, iddocente = ?, horas_requeridas = ? WHERE idconfiguracion = ?", [idperiodo, idcarrera, iddocente, horas_requeridas, idconfiguracion], callback);
+    },
+
+    deleteConfiguracion: (idconfiguracion, callback) => {
+        db.query("UPDATE cese_configuracion SET estado = 0 WHERE idconfiguracion = ?", [idconfiguracion], callback);
+    },
+
+    activarConfiguracion: (idconfiguracion, callback) => {
+        db.query("UPDATE cese_configuracion SET estado = 1 WHERE idconfiguracion = ?", [idconfiguracion], callback);
     }
 
 };
