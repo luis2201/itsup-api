@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const verifyToken = (req, res, next) => {
     // Obtener el token del header Authorization
     const token = req.headers['authorization']; 
-    
+    console.log('Token recibido:', token);
     // Verificar si el token está presente
     if (!token) {
         console.log('Token no proporcionado');
@@ -14,13 +14,16 @@ const verifyToken = (req, res, next) => {
     // Verificar el formato del token
     const tokenParts = token.split(" ");
     // Si el token no tiene dos partes (header y payload), retornar error
-    if (tokenParts.length !== 2 || tokenParts[0] == 'Bearer') {
+    if (tokenParts.length !== 2 || tokenParts[0] == "Bearer") {
+        console.log('Formato de Token incorrecto');
         return res.status(400).json({ error: 'Formato de Token incorrecto' });
     }
+
     // Verificar el token usando la clave secreta
     jwt.verify(tokenParts[1], process.env.JWT_SECRET, (err, decoded) => {
         // Si hay un error al verificar el token, retornar error
         if (err) {
+            console.error('Token inválido:', err);
             return res.status(401).json({ error: 'Token inválido' });
         }
 
