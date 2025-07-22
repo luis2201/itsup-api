@@ -13,6 +13,8 @@ const verifyToken = (req, res, next) => {
 
     // Verificar el formato del token
     const tokenParts = token.split(" ");    
+
+    console.log("Token recibido: ", token);
     console.log("Partes del token: ", tokenParts.length)    
     console.log("Prefijo del Token: ", tokenParts[0]);
     // Si el token no tiene dos partes (header y payload), retornar error
