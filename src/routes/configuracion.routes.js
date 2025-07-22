@@ -7,6 +7,6 @@ const verifyRoles = require('../middleware/roleMiddleware');
 
 const router = express.Router();
 
-router.get('/', verifyToken, ConfiguracionController.getAllConfiguraciones);
+router.get('/', verifyToken, verifyRoles(['ADMINCESE']), ConfiguracionController.getAllConfiguraciones);
 
 module.exports = router;
