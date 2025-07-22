@@ -18,7 +18,7 @@ const verifyToken = (req, res, next) => {
     console.log("Partes del token: ", tokenParts.length)    
     console.log("Prefijo del Token: ", tokenParts[0]);
     // Si el token no tiene dos partes (header y payload), retornar error
-    if (tokenParts.length !== 2 || tokenParts[0] == "Bearer") {
+    if (tokenParts.length !== 2 || tokenParts[0] !== "Bearer") {
         console.log('Formato de Token incorrecto');
         return res.status(400).json({ error: 'Formato de Token incorrecto' });
     }
