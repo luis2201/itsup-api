@@ -1,9 +1,26 @@
 const db = require('../config/db');
+const { updateConfiguracion } = require('../controllers/configuracion.controller');
 
 const Configuracion = {
 
     getAllConfiguraciones: (callback) => {
         db.query("SELECT * FROM cese_configuracion ORDER BY idperiodo", callback);
+    },
+
+    createConfiguracion: (configuracionData, callback) => {
+        const { idperiodo, idcarrera, iddocente, horas_requeridas } = configuracionData;
+
+        db.query("INSERT INTO cese_configuracion (idperiodo, idcarrera, iddocente, horas_requeridas) VALUES (?, ?, ?, ?)", [idperiodo, idcarrera, iddocente, horas_requeridas], callback);
+    },
+
+    getConfiguracionById: (idconfiguracion, callback) => {
+        db.query("SELECT * FROM cese_configuracion WHERE idconfiguracion = ?", [idconfiguracion], callback);
+    },
+
+    updateConfiguracion: (idconfiguracion, configuracionData, callback) => {
+        const { idperiodo, idcarrera, iddocente, horas_requeridas } = configuracionData;
+
+        db.query("UPDATE cese_configuracion SET idperiodo = ?, idcarrera = ?, iddocente = ?, horas_requeridas = ? WHERE idconfiguracion = ?", [idperiodo, idcarrera, iddocente, horas_requeridas, idconfiguracion], callback);
     }
 
 };

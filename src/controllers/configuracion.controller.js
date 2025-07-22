@@ -10,6 +10,44 @@ const ConfiguracionController = {
             }
             return res.json(results);
         });
+    },
+
+    createConfiguracion: (req, res) => {
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        const { idperiodo, idcarrera, iddocente, horas_requeridas } = req.body;
+
+        Configuracion.createConfiguracion({ idperiodo, idcarrera, iddocente, horas_requeridas }, (err) => {
+            if (err) {
+                return res.status(500).json({ error: 'Error al crear la configuración' });
+            }
+            return res.status(201).json({ message: 'Configuración creada exitosamente' });
+        });
+    },
+
+    getConfiguracionById: (req, res) => {
+        const { id } = req.params;
+
+        Configuracion.getConfiguracionById(id, (err, result) => {        
+            return res.json(result[0]);
+        });
+    },
+
+    updateConfiguracion: (req, res) => {
+        const { id } = req.params;
+        const { idperiodo, idcarrera, iddocente, horas_requeridas } = req.body;
+
+        Configuracion.updateConfiguracion(id, { idperiodo, idcarrera, iddocente, horas_requeridas }, (err) => {
+            if (err) {
+                return res.status(500).json({ error: 'Error al actualizar la configuración' });
+            }
+            
+            res.json({ message: 'Configuración actualizada exitosamente' });
+        });
     }
 
 };

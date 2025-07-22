@@ -7,6 +7,23 @@ const verifyRoles = require('../middleware/roleMiddleware');
 
 const router = express.Router();
 
-router.get('/', verifyToken, verifyRoles(['ADMINCESE']), ConfiguracionController.getAllConfiguraciones);
+router.get('/', verifyToken, ConfiguracionController.getAllConfiguraciones);
+
+router.post(
+    '/',
+    verifyToken,
+    verifyRoles(['ADMINCESE']),
+    [
+        body('idperiodo').notEmpty().withMessage('El periodo es obligatorio'),
+        body('idcarrera').notEmpty().withMessage('La carrera es obligatoria'),
+        body('iddocente').notEmpty().withMessage('El docente es obligatorio'),
+        body('horas_requeridas').notEmpty().withMessage('Las horas son obligatorias')
+    ],
+    ConfiguracionController.createConfiguracion
+);
+
+router.get('/:id', verifyToken, verifyRoles(['ADMINCESE']), ConfiguracionController.getConfiguracionById);
+
+router.put('/:id', verifyToken, verifyRoles(['ADMINCESE']), ConfiguracionController.updateConfiguracion);
 
 module.exports = router;

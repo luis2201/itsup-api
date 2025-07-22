@@ -1,10 +1,10 @@
 const Permissions = require('../models/permissions.model');
 
 // Middleware para verificar permisos basados en el rol del usuario
-const verifyPermissions = (req, res, next) => {
+const verifyPermissions = (req, res, next) => { 
+    
     // Verificar si el usuario está autenticado
     const { tipousuario } = req.user;
-    console.log('Tipo de usuario:', tipousuario);
     // Verificar si el rol del usuario está definido
     Permissions.getpermissionsByRole(tipousuario, (err, results) => {
         // Manejar errores de la consulta
