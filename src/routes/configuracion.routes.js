@@ -8,7 +8,7 @@ const verifyRoles = require('../middleware/roleMiddleware');
 const router = express.Router();
 
 router.get('/', verifyToken, ConfiguracionController.getAllConfiguraciones);
-
+console.log('Configuracion routes loaded');
 router.post(
     '/',
     verifyToken,

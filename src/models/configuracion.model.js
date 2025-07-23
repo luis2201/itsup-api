@@ -1,10 +1,13 @@
 const db = require('../config/db');
-const { updateConfiguracion } = require('../controllers/configuracion.controller');
 
 const Configuracion = {
 
     getAllConfiguraciones: (callback) => {
         db.query("SELECT * FROM cese_configuracion ORDER BY idperiodo", callback);
+    },
+
+    findByPeriodo: (idperiodo, callback) => {
+        db.query("SELECT * FROM cese_configuracion WHERE idperiodo = ?", [idperiodo], callback);
     },
 
     createConfiguracion: (configuracionData, callback) => {

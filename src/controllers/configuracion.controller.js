@@ -21,18 +21,30 @@ const ConfiguracionController = {
 
         const { idperiodo, idcarrera, iddocente, horas_requeridas } = req.body;
 
-        Configuracion.createConfiguracion({ idperiodo, idcarrera, iddocente, horas_requeridas }, (err) => {
+        // Verificar si ya existe configuración para ese periodo
+        Configuracion.findByPeriodo(idperiodo, (err, result) => {
             if (err) {
-                return res.status(500).json({ error: 'Error al crear la configuración' });
+                return res.status(500).json({ error: 'Error al consultar configuración existente' });
             }
-            return res.status(201).json({ message: 'Configuración creada exitosamente' });
+
+            if (result && result.length > 0) {
+                return res.status(400).json({ message: 'Ya existe una configuración para este periodo.' });
+            }
+
+            // Si no existe, crear nueva configuración
+            Configuracion.createConfiguracion({ idperiodo, idcarrera, iddocente, horas_requeridas }, (err) => {
+                if (err) {
+                    return res.status(500).json({ error: 'Error al crear la configuración' });
+                }
+                return res.status(201).json({ message: 'Configuración creada exitosamente' });
+            });
         });
     },
 
     getConfiguracionById: (req, res) => {
         const { id } = req.params;
 
-        Configuracion.getConfiguracionById(id, (err, result) => {        
+        Configuracion.getConfiguracionById(id, (err, result) => {
             return res.json(result[0]);
         });
     },
@@ -40,13 +52,26 @@ const ConfiguracionController = {
     updateConfiguracion: (req, res) => {
         const { id } = req.params;
         const { idperiodo, idcarrera, iddocente, horas_requeridas } = req.body;
+console.log("ID recibido para actualizar:", id);
 
-        Configuracion.updateConfiguracion(id, { idperiodo, idcarrera, iddocente, horas_requeridas }, (err) => {
+        // Verificar si ya existe una configuración con ese idperiodo, pero con ID distinto
+        Configuracion.findByPeriodo(idperiodo, (err, result) => {
             if (err) {
-                return res.status(500).json({ error: 'Error al actualizar la configuración' });
+                return res.status(500).json({ error: 'Error al consultar configuración existente' });
             }
-            
-            res.json({ message: 'Configuración actualizada exitosamente' });
+
+            if (result && result.length > 0 && result[0].id != id) {
+                return res.status(400).json({ message: 'Ya existe una configuración para este periodo.' });
+            }
+
+            Configuracion.updateConfiguracion(id, { idperiodo, idcarrera, iddocente, horas_requeridas }, (err) => {
+                if (err) {
+                    return res.status(500).json({ error: 'Error al actualizar la configuración' });
+                }
+
+                res.json({ message: 'Configuración actualizada exitosamente' });
+            });
+
         });
     },
 
