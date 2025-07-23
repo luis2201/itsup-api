@@ -3,6 +3,7 @@ const { validationResult } = require('express-validator');
 
 const ConfiguracionController = {
 
+    // Obtener todas las configuraciones
     getAllConfiguraciones: (req, res) => {
         Configuracion.getAllConfiguraciones((err, results) => {
             if (err) {
@@ -12,13 +13,16 @@ const ConfiguracionController = {
         });
     },
 
+    // Crear una nueva configuración
     createConfiguracion: (req, res) => {
         const errors = validationResult(req);
-
+        
+        // Validar los datos de entrada
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
 
+        // Extraer los datos del cuerpo de la solicitud
         const { idperiodo, idcarrera, iddocente, horas_requeridas } = req.body;
 
         // Verificar si ya existe configuración para ese periodo
@@ -41,6 +45,7 @@ const ConfiguracionController = {
         });
     },
 
+    // Obtener configuración por ID
     getConfiguracionById: (req, res) => {
         const { id } = req.params;
 
@@ -49,6 +54,7 @@ const ConfiguracionController = {
         });
     },
 
+    // Actualizar una configuración
     updateConfiguracion: (req, res) => {
         const { id } = req.params;
         const { idperiodo, idcarrera, iddocente, horas_requeridas } = req.body;
@@ -58,11 +64,12 @@ const ConfiguracionController = {
             if (err) {
                 return res.status(500).json({ error: 'Error al consultar configuración existente' });
             }
-            console.log("ID encontrado para actualizar:", result[0].idconfiguracion);
+            // Si existe una configuración con el mismo periodo pero diferente ID, no se permite la actualización
             if (result && result.length > 0 && result[0].idconfiguracion != id) {
                 return res.status(400).json({ message: 'Ya existe una configuración para este periodo.' });
             }
 
+            // Si no hay conflictos, proceder a actualizar
             Configuracion.updateConfiguracion(id, { idperiodo, idcarrera, iddocente, horas_requeridas }, (err) => {
                 if (err) {
                     return res.status(500).json({ error: 'Error al actualizar la configuración' });
@@ -74,6 +81,7 @@ const ConfiguracionController = {
         });
     },
 
+    // Eliminar una configuración (marcar como inactiva)
     deleteConfiguracion: (req, res) => {
         const { id } = req.params;
 
@@ -85,6 +93,7 @@ const ConfiguracionController = {
         });
     },
 
+    // Activar una configuración
     activarConfiguracion: (req, res) => {
         const { id } = req.params;
 
