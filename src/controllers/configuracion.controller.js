@@ -52,24 +52,21 @@ const ConfiguracionController = {
     updateConfiguracion: (req, res) => {
         const { id } = req.params;
         const { idperiodo, idcarrera, iddocente, horas_requeridas } = req.body;
-console.log("ID recibido para actualizar:", id);
-console.log("Datos recibidos para actualizar:", req.body);
 
         // Verificar si ya existe una configuración con ese idperiodo, pero con ID distinto
         Configuracion.findByPeriodo(idperiodo, (err, result) => {
             if (err) {
                 return res.status(500).json({ error: 'Error al consultar configuración existente' });
             }
-console.log("Resultado de la búsqueda por periodo:", result);
-console.log("Resultado encontrado:", result && result.length > 0 ? result[0].id : 'No encontrado');
-console.log("ID de configuración actual:", id);
-console.log("ID de configuración encontrado:", result[0].id);
+
             if (result && result.length > 0 && result[0].id != id) {
                 return res.status(400).json({ message: 'Ya existe una configuración para este periodo.' });
             }
 
             Configuracion.updateConfiguracion(id, { idperiodo, idcarrera, iddocente, horas_requeridas }, (err) => {
                 if (err) {
+                            console.error("Error SQL al actualizar:", err); // <-- agrega esto
+
                     return res.status(500).json({ error: 'Error al actualizar la configuración' });
                 }
 

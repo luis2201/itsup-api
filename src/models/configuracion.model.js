@@ -21,7 +21,6 @@ const Configuracion = {
     },
 
     updateConfiguracion: (idconfiguracion, configuracionData, callback) => {
-        console.log("ID recibido para actualizar:", idconfiguracion);
         const { idperiodo, idcarrera, iddocente, horas_requeridas } = configuracionData;
 
         db.query("UPDATE cese_configuracion SET idperiodo = ?, idcarrera = ?, iddocente = ?, horas_requeridas = ? WHERE idconfiguracion = ?", [idperiodo, idcarrera, iddocente, horas_requeridas, idconfiguracion], callback);
