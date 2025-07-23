@@ -58,7 +58,7 @@ const ConfiguracionController = {
             if (err) {
                 return res.status(500).json({ error: 'Error al consultar configuración existente' });
             }
-            console.log("ID encontrado para actualizar:", result[0].idconfiguracion);
+
             if (result && result.length > 0 && result[0].idconfiguracion != id) {
                 return res.status(400).json({ message: 'Ya existe una configuración para este periodo.' });
             }
