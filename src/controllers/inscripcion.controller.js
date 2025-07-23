@@ -96,3 +96,5 @@ const InscripcionController = {
     }
 
 }
+
+module.exports = InscripcionController;

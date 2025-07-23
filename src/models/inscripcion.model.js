@@ -46,3 +46,5 @@ const Inscripcion = {
     },    
 
 };
+
+module.exports = Inscripcion;
