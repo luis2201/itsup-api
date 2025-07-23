@@ -12,7 +12,7 @@ router.get('/', verifyToken, InscripcionController.getAllInscripciones);
 router.post(
     '/',
     verifyToken,
-    verifyRoles(['admin']),
+    verifyRoles(['ADMINCESE']),
     [
         body('idperiodo').notEmpty().withMessage('El periodo es obligatorio'),
         body('idmatricula').isEmail().withMessage('La matrícula es obligatoria'),
