@@ -63,8 +63,8 @@ console.log("Datos recibidos para actualizar:", req.body);
 console.log("Resultado de la búsqueda por periodo:", result);
 console.log("Resultado encontrado:", result && result.length > 0 ? result[0].id : 'No encontrado');
 console.log("ID de configuración actual:", id);
-console.log("ID de configuración encontrado:", result[0].idconfiguracion);
-            if (result && result.length > 0 && result[0].idconfiguracion != id) {
+console.log("ID de configuración encontrado:", result[0].id);
+            if (result && result.length > 0 && result[0].id != id) {
                 return res.status(400).json({ message: 'Ya existe una configuración para este periodo.' });
             }
 
