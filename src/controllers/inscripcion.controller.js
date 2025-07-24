@@ -21,7 +21,7 @@ const InscripcionController = {
 
         const { idperiodo, idmatricula, fecha_inscripcion } = req.body;
 
-        Inscripcion.findByIdPeriodo(idmatricula, (err, result) => {
+        Inscripcion.findByIdMatricula(idmatricula, (err, result) => {
             if (err) {
                 return res.status(500).json({ error: 'Error al consultar inscripción existente' });
             }

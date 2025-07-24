@@ -21,12 +21,12 @@ router.post(
     InscripcionController.createInscripcion
 );
 
-router.get('/:id', verifyToken, InscripcionController.getInscripcionById);
+router.get('/:id', verifyToken, verifyRoles(['ADMINCESE']), InscripcionController.getInscripcionById);
 
-router.put('/:id', verifyToken, InscripcionController.updateInscripcion);
+router.put('/:id', verifyToken, verifyRoles(['ADMINCESE']), InscripcionController.updateInscripcion);
 
-router.delete('/:id', verifyToken, InscripcionController.deleteInscripcion);
+router.delete('/:id', verifyToken, verifyRoles(['ADMINCESE']), InscripcionController.deleteInscripcion);
 
-router.put('/:id/activar', verifyToken, InscripcionController.activarInscripcion);
+router.put('/:id/activar', verifyToken, verifyRoles(['ADMINCESE']), InscripcionController.activarInscripcion);
 
 module.exports = router;
