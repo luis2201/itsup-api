@@ -10,7 +10,7 @@ const verifyRoles = require('../middleware/roleMiddleware');
 const router = express.Router();
 
 // Obtener todas las configuraciones
-router.get('/', verifyToken, ConfiguracionController.getAllConfiguraciones);
+router.get('/', verifyToken, verifyRoles(['ADMINCESE']), ConfiguracionController.getAllConfiguraciones);
 
 // Crear una nueva configuración
 router.post(

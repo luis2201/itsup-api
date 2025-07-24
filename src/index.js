@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth.routes');
 const configuracionRoutes = require('./routes/configuracion.routes');
 const inscripcionRoutes = require('./routes/inscripcion.routes');
+const asistenciaRoutes = require('./routes/asistencia.routes');
 
 const db = require('./config/db');
 const app = express();
@@ -56,6 +57,7 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/configuraciones', configuracionRoutes);
 app.use('/api/inscripciones', inscripcionRoutes);
+app.use('/api/asistencias', inscripcionRoutes);
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 4001;

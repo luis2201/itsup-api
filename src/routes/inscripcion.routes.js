@@ -7,7 +7,7 @@ const verifyRoles = require('../middleware/roleMiddleware');
 
 const router = express.Router();
 
-router.get('/', verifyToken, InscripcionController.getAllInscripciones);
+router.get('/', verifyToken, verifyRoles(['ADMINCESE']), InscripcionController.getAllInscripciones);
 
 router.post(
     '/',
