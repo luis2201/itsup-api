@@ -15,7 +15,7 @@ router.post(
     verifyRoles(['ADMINCESE']),
     [
         body('idperiodo').notEmpty().withMessage('El periodo es obligatorio'),
-        body('idmatricula').isEmail().withMessage('La matrícula es obligatoria'),
+        body('idmatricula').notEmpty().withMessage('La matrícula es obligatoria'),
         body('fecha_inscripcion').notEmpty().withMessage('La fecha de inscripción es obligatoria'),
     ],
     InscripcionController.createInscripcion
