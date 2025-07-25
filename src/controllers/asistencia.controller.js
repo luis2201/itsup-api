@@ -19,7 +19,7 @@ const AsistenciaController = {
             return res.status(400).json({ errors: errors.array() });
         }
 
-        const { idperiodo, idinscripcion, fecha, hora_entrada, hora_salida } = req.body;
+        const { idinscripcion, fecha, hora_entrada, hora_salida } = req.body;
 
         Asistencia.findByFecha({ idinscripcion, fecha }, (err, result) => {
             if (err) {
@@ -31,7 +31,7 @@ const AsistenciaController = {
             }
 
             // Si no existe, crear nueva asistencia
-            Asistencia.createAsistencia({ idperiodo, idinscripcion, fecha, hora_entrada, hora_salida }, (err) => {
+            Asistencia.createAsistencia({ idinscripcion, fecha, hora_entrada, hora_salida }, (err) => {
                 if (err) {
                     return res.status(500).json({ error: 'Error al crear la asistencia' });
                 }
@@ -53,7 +53,7 @@ const AsistenciaController = {
 
     updateAsistencia: (req, res) => {
         const { id } = req.params;
-        const { idperiodo, idinscripcion, fecha, hora_entrada, hora_salida } = req.body;
+        const { idinscripcion, fecha, hora_entrada, hora_salida } = req.body;
 
         Asistencia.findByFecha({ idinscripcion, fecha }, (err, result) => {
             if (err) {
@@ -65,7 +65,7 @@ const AsistenciaController = {
             }
 
             // Si no existe o es la misma, actualizar asistencia
-            Asistencia.updateAsistencia(id, { idperiodo, idinscripcion, fecha, hora_entrada, hora_salida }, (err) => {
+            Asistencia.updateAsistencia(id, { idinscripcion, fecha, hora_entrada, hora_salida }, (err) => {
                 if (err) {
                     return res.status(500).json({ error: 'Error al actualizar la asistencia' });
                 }

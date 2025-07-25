@@ -3,7 +3,7 @@ const db = require('../config/db');
 const Asistencia = {
     // Obtener todas las asistencias
     getAllAsistencias: (callback) => {
-        db.query("SELECT * FROM cese_asistencia ORDER BY idperiodo", callback);
+        db.query("SELECT * FROM cese_asistencia ORDER BY fecha", callback);
     },
 
     // Buscar asistencia por fecha y estudiante
@@ -14,9 +14,9 @@ const Asistencia = {
 
     // Crear una nueva asistencia
     createAsistencia: (asistenciaData, callback) => {
-        const { idperiodo, idinscripcion, fecha, hora_entrada, hora_salida } = asistenciaData;
+        const { idinscripcion, fecha, hora_entrada, hora_salida } = asistenciaData;
         
-        db.query("INSERT INTO cese_asistencia (idperiodo, idinscripcion, fecha, hora_entrada, hora_salida) VALUES (?, ?, ?, ?, ?)", [idperiodo, idinscripcion, fecha, hora_entrada, hora_salida], callback);
+        db.query("INSERT INTO cese_asistencia (idinscripcion, fecha, hora_entrada, hora_salida) VALUES (?, ?, ?, ?)", [idinscripcion, fecha, hora_entrada, hora_salida], callback);
     },
 
     // Obtener asistencia por ID
@@ -26,9 +26,9 @@ const Asistencia = {
 
     // Actualizar una asistencia
     updateAsistencia: (idasistencia, asistenciaData, callback) => {
-        const { idperiodo, idinscripcion, fecha, hora_entrada, hora_salida } = asistenciaData;
+        const { idinscripcion, fecha, hora_entrada, hora_salida } = asistenciaData;
 
-        db.query("UPDATE cese_asistencia SET idperiodo = ?, idinscripcion = ?, fecha = ?, hora_entrada = ?, hora_salida = ? WHERE idasistencia = ?", [idperiodo, idinscripcion, fecha, hora_entrada, hora_salida, idasistencia], callback);
+        db.query("UPDATE cese_asistencia SET idinscripcion = ?, fecha = ?, hora_entrada = ?, hora_salida = ? WHERE idasistencia = ?", [idinscripcion, fecha, hora_entrada, hora_salida, idasistencia], callback);
     },
 
     // Eliminar una asistencia (marcar como inactiva)

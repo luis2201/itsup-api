@@ -14,7 +14,6 @@ router.post(
     verifyToken,
     verifyRoles(['ADMINCESE']),
     [
-        body('idperiodo').notEmpty().withMessage('El periodo es obligatorio'),
         body('idinscripcion').notEmpty().withMessage('El estudiante es obligatoria'),
         body('fecha').notEmpty().withMessage('La fecha de asistencia es obligatoria'),
         body('hora_entrada').notEmpty().withMessage('La hora de entrada es obligatoria'),
