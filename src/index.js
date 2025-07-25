@@ -5,6 +5,7 @@ const authRoutes = require('./routes/auth.routes');
 const configuracionRoutes = require('./routes/configuracion.routes');
 const inscripcionRoutes = require('./routes/inscripcion.routes');
 const asistenciaRoutes = require('./routes/asistencia.routes');
+const clienteRoutes = require('./routes/cliente.routes');
 
 const db = require('./config/db');
 const app = express();
@@ -58,6 +59,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/configuraciones', configuracionRoutes);
 app.use('/api/inscripciones', inscripcionRoutes);
 app.use('/api/asistencias', asistenciaRoutes);
+app.use('/api/clientes', clienteRoutes);
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 4001;

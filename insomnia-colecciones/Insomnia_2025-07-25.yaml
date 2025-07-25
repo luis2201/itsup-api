@@ -57,7 +57,7 @@ collection:
         meta:
           id: req_c355aee5e83c4faeb7349c2fa9253610
           created: 1753458822788
-          modified: 1753459552403
+          modified: 1753474298107
           isPrivate: false
           description: ""
           sortKey: -1753458822788
@@ -67,7 +67,7 @@ collection:
             value: insomnia/11.3.0
         authentication:
           type: bearer
-          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzdWFyaW8iOjI0LCJub21icmVzIjoiQURNSU5JU1RSQURPUiBDRVNFIiwidGlwb3VzdWFyaW8iOiJBRE1JTkNFU0UiLCJpYXQiOjE3NTM0NTc2MDIsImV4cCI6MTc1MzQ2NDgwMn0.vnZPZPPQc_ofNmHm8tp1Dhvp3hC7t_d0XVIUFFvYdnY
+          token: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -81,7 +81,7 @@ collection:
         meta:
           id: req_3b6e129bf449452190acc2578c2c17cc
           created: 1753459168776
-          modified: 1753459566602
+          modified: 1753474293066
           isPrivate: false
           description: ""
           sortKey: -1753458822888
@@ -102,7 +102,7 @@ collection:
             value: insomnia/11.3.0
         authentication:
           type: bearer
-          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzdWFyaW8iOjI0LCJub21icmVzIjoiQURNSU5JU1RSQURPUiBDRVNFIiwidGlwb3VzdWFyaW8iOiJBRE1JTkNFU0UiLCJpYXQiOjE3NTM0NTc2MDIsImV4cCI6MTc1MzQ2NDgwMn0.vnZPZPPQc_ofNmHm8tp1Dhvp3hC7t_d0XVIUFFvYdnY
+          token: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -116,7 +116,7 @@ collection:
         meta:
           id: req_96b43c9234954e2a9a06ad7add187df0
           created: 1753459482222
-          modified: 1753459525332
+          modified: 1753474304815
           isPrivate: false
           description: ""
           sortKey: -1753458822838
@@ -126,7 +126,7 @@ collection:
             value: insomnia/11.3.0
         authentication:
           type: bearer
-          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzdWFyaW8iOjI0LCJub21icmVzIjoiQURNSU5JU1RSQURPUiBDRVNFIiwidGlwb3VzdWFyaW8iOiJBRE1JTkNFU0UiLCJpYXQiOjE3NTM0NTc2MDIsImV4cCI6MTc1MzQ2NDgwMn0.vnZPZPPQc_ofNmHm8tp1Dhvp3hC7t_d0XVIUFFvYdnY
+          token: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -140,7 +140,7 @@ collection:
         meta:
           id: req_27ad3814408a4ffb81182fad82e9f153
           created: 1753459537577
-          modified: 1753460018117
+          modified: 1753474308808
           isPrivate: false
           description: ""
           sortKey: -1753458016527
@@ -161,7 +161,7 @@ collection:
             value: insomnia/11.3.0
         authentication:
           type: bearer
-          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzdWFyaW8iOjI0LCJub21icmVzIjoiQURNSU5JU1RSQURPUiBDRVNFIiwidGlwb3VzdWFyaW8iOiJBRE1JTkNFU0UiLCJpYXQiOjE3NTM0NTc2MDIsImV4cCI6MTc1MzQ2NDgwMn0.vnZPZPPQc_ofNmHm8tp1Dhvp3hC7t_d0XVIUFFvYdnY
+          token: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -183,7 +183,7 @@ collection:
         meta:
           id: req_e86919b3be2343929b6f7294c41d8ba7
           created: 1753459323782
-          modified: 1753459344515
+          modified: 1753474316706
           isPrivate: false
           description: ""
           sortKey: -1753459344490
@@ -193,7 +193,181 @@ collection:
             value: insomnia/11.3.0
         authentication:
           type: bearer
-          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzdWFyaW8iOjI0LCJub21icmVzIjoiQURNSU5JU1RSQURPUiBDRVNFIiwidGlwb3VzdWFyaW8iOiJBRE1JTkNFU0UiLCJpYXQiOjE3NTM0NTc2MDIsImV4cCI6MTc1MzQ2NDgwMn0.vnZPZPPQc_ofNmHm8tp1Dhvp3hC7t_d0XVIUFFvYdnY
+          token: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Clientes
+    meta:
+      id: fld_16a092c6bf18429f8b99e9708c0cb408
+      created: 1753476761261
+      modified: 1753476761261
+      sortKey: -1753476761261
+      description: ""
+    children:
+      - url: https://itsup-api.luispincay.com/api/clientes
+        name: createCliente
+        meta:
+          id: req_0bd4eaa03cfd42598bf0f940af27b3ec
+          created: 1753476765663
+          modified: 1753477221523
+          isPrivate: false
+          description: ""
+          sortKey: -1753476765863
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"cedula":"2345678901",
+            	"nombre":"Melina Ampuero",
+            	"telefono":"0914569800",
+            	"direccion":"Manta"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://itsup-api.luispincay.com/api/clientes
+        name: getAllClientes
+        meta:
+          id: req_6ece29ff0ddb4ba98d89b451bb78c76d
+          created: 1753477213740
+          modified: 1753478382029
+          isPrivate: false
+          description: ""
+          sortKey: -1753476765763
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://itsup-api.luispincay.com/api/clientes/2
+        name: getClientesById
+        meta:
+          id: req_a443f8de996b4e40ba140e85aa0864f9
+          created: 1753477981802
+          modified: 1753478038327
+          isPrivate: false
+          description: ""
+          sortKey: -1753476765663
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://itsup-api.luispincay.com/api/clientes/2
+        name: updateCliente
+        meta:
+          id: req_c18d65f073da4b308fa37545c4a5babd
+          created: 1753478046146
+          modified: 1753478191443
+          isPrivate: false
+          description: ""
+          sortKey: -1753476765563
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"cedula":"2345678900",
+            	"nombre":"Melina Ampuero",
+            	"telefono":"0914569800",
+            	"direccion":"Bahía de Caráquez"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://itsup-api.luispincay.com/api/clientes/1
+        name: deleteCliente
+        meta:
+          id: req_bc0101c607474ce4856ced1b62ba8c97
+          created: 1753478198350
+          modified: 1753478375447
+          isPrivate: false
+          description: ""
+          sortKey: -1753476765463
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://itsup-api.luispincay.com/api/clientes/1/activar
+        name: activarCliente
+        meta:
+          id: req_4600f4861f234400888a16ea3e356ecc
+          created: 1753478315725
+          modified: 1753478370918
+          isPrivate: false
+          description: ""
+          sortKey: -1753476765363
+        method: PUT
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
