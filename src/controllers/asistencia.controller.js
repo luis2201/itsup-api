@@ -40,7 +40,7 @@ const AsistenciaController = {
         });
     },
 
-    getAsistenciById: (req, res) => {
+    getAsistenciaById: (req, res) => {
         const { id } = req.params;
 
         Asistencia.getAsistenciaById(id, (err, result) => {
