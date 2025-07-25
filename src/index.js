@@ -6,6 +6,7 @@ const configuracionRoutes = require('./routes/configuracion.routes');
 const inscripcionRoutes = require('./routes/inscripcion.routes');
 const asistenciaRoutes = require('./routes/asistencia.routes');
 const clienteRoutes = require('./routes/cliente.routes');
+const equipoRoutes = require('./routes/equipo.routes');
 
 const db = require('./config/db');
 const app = express();
@@ -60,6 +61,7 @@ app.use('/api/configuraciones', configuracionRoutes);
 app.use('/api/inscripciones', inscripcionRoutes);
 app.use('/api/asistencias', asistenciaRoutes);
 app.use('/api/clientes', clienteRoutes);
+app.use('/api/equipos', equipoRoutes);
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 4001;
