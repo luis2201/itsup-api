@@ -21,7 +21,7 @@ const AsistenciaController = {
 
         const { idperiodo, idinscripcion, fecha, hora_entrada, hora_salida } = req.body;
 
-        Asistencia.findByIdInscripcion(idinscripcion, (err, result) => {
+        Asistencia.findByFecha({ idinscripcion, fecha }, (err, result) => {
             if (err) {
                 return res.status(500).json({ error: 'Error al consultar asistencia existente' });
             }
@@ -39,3 +39,64 @@ const AsistenciaController = {
             });
         });
     },
+
+    getAsistenciById: (req, res) => {
+        const { id } = req.params;
+
+        Asistencia.getAsistenciaById(id, (err, result) => {
+            if (err) {
+                return res.status(500).json({ error: 'Error al obtener asistencia' });
+            }
+            return res.json(result[0]);
+        });
+    },
+
+    updateAsistencia: (req, res) => {
+        const { id } = req.params;
+        const { idperiodo, idinscripcion, fecha, hora_entrada, hora_salida } = req.body;
+
+        Asistencia.findByFecha({ idinscripcion, fecha }, (err, result) => {
+            if (err) {
+                return res.status(500).json({ error: 'Error al consultar asistencia existente' });
+            }
+
+            if (result && result.length > 0 && result[0].idasistencia !== parseInt(id)) {
+                return res.status(400).json({ message: 'Ya existe una asistencia para este estudiante en esta fecha.' });
+            }
+
+            // Si no existe o es la misma, actualizar asistencia
+            Asistencia.updateAsistencia(id, { idperiodo, idinscripcion, fecha, hora_entrada, hora_salida }, (err) => {
+                if (err) {
+                    return res.status(500).json({ error: 'Error al actualizar la asistencia' });
+                }
+                return res.json({ message: 'Asistencia actualizada exitosamente' });
+            });
+        });
+    },
+
+    deleteAsistencia: (req, res) => {
+        const { id } = req.params;
+
+        Asistencia.deleteAsistencia(id, (err) => {
+            if (err) {
+                return res.status(500).json({ error: 'Error al eliminar la asistencia' });
+            }
+            return res.json({ message: 'Asistencia eliminada exitosamente' });
+        });
+    },
+
+    activarAsistencia: (req, res) => {
+        const { id } = req.params;
+
+        Asistencia.activarAsistencia(id, (err) => {
+            if (err) {
+                return res.status(500).json({ error: 'Error al activar la asistencia' });
+            }
+            return res.json({ message: 'Asistencia activada exitosamente' });
+        });
+    },
+
+
+};
+
+module.exports = AsistenciaController;
