@@ -1,14 +1,14 @@
 type: collection.insomnia.rest/5.0
 name: CESE
 meta:
-  id: wrk_a01de889ced44034bdc321aae02c5bc8
-  created: 1753144090268
-  modified: 1753452405858
+  id: wrk_9dc181ef21c949a686c9d543ea5835d4
+  created: 1753489391853
+  modified: 1753489391853
   description: ""
 collection:
   - name: Auth
     meta:
-      id: fld_cfb5680f79c44b0597ff6bd480ed4c5b
+      id: fld_5bf0cc5746af430086cf25cb11cbce47
       created: 1753457207900
       modified: 1753457207900
       sortKey: -1753457207900
@@ -17,9 +17,9 @@ collection:
       - url: https://itsup-api.luispincay.com/api/auth/login
         name: Login
         meta:
-          id: req_d84398b67ef245a49945b54a78356679
+          id: req_a472ed6c1d494c8e8f17fb924a158879
           created: 1753457210266
-          modified: 1753457601718
+          modified: 1753494420188
           isPrivate: false
           description: ""
           sortKey: -1753457210266
@@ -36,6 +36,9 @@ collection:
             value: application/json
           - name: User-Agent
             value: insomnia/11.3.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -44,9 +47,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
   - name: Asistencias
     meta:
-      id: fld_cd14cf3cdb824cf1b220c3e69986f710
+      id: fld_31b90b01eb884f00a1f116e3cfb0f949
       created: 1753458817197
       modified: 1753458817197
       sortKey: -1753458817197
@@ -55,7 +61,7 @@ collection:
       - url: https://itsup-api.luispincay.com/api/asistencias
         name: getAllAsistencias
         meta:
-          id: req_c355aee5e83c4faeb7349c2fa9253610
+          id: req_48b8f3136bd145879a0b4d3310bb80b6
           created: 1753458822788
           modified: 1753474298107
           isPrivate: false
@@ -68,6 +74,9 @@ collection:
         authentication:
           type: bearer
           token: ""
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -79,7 +88,7 @@ collection:
       - url: https://itsup-api.luispincay.com/api/asistencias
         name: createAsistencia
         meta:
-          id: req_3b6e129bf449452190acc2578c2c17cc
+          id: req_875cb766266e4688b45a732ebe3d0da5
           created: 1753459168776
           modified: 1753474293066
           isPrivate: false
@@ -103,6 +112,9 @@ collection:
         authentication:
           type: bearer
           token: ""
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -114,7 +126,7 @@ collection:
       - url: https://itsup-api.luispincay.com/api/asistencias/2
         name: getAsistenciaById
         meta:
-          id: req_96b43c9234954e2a9a06ad7add187df0
+          id: req_dd24d5c8c11843868b314b3f8e1363d1
           created: 1753459482222
           modified: 1753474304815
           isPrivate: false
@@ -127,6 +139,9 @@ collection:
         authentication:
           type: bearer
           token: ""
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -138,7 +153,7 @@ collection:
       - url: https://itsup-api.luispincay.com/api/asistencias/2
         name: updateAsistencia
         meta:
-          id: req_27ad3814408a4ffb81182fad82e9f153
+          id: req_9bcc6c6699834afb93fa5fefc0e64a58
           created: 1753459537577
           modified: 1753474308808
           isPrivate: false
@@ -162,6 +177,9 @@ collection:
         authentication:
           type: bearer
           token: ""
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -170,9 +188,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
   - name: Inscripciones
     meta:
-      id: fld_869d60a1e8f7441687c3713a2988c625
+      id: fld_67bc5615409b435692124c1aa852d19c
       created: 1753459313063
       modified: 1753459313063
       sortKey: -1753459313063
@@ -181,7 +202,7 @@ collection:
       - url: https://itsup-api.luispincay.com/api/inscripciones
         name: getAllInscripciones
         meta:
-          id: req_e86919b3be2343929b6f7294c41d8ba7
+          id: req_0c0756e3ed714454b4949a472d5676b9
           created: 1753459323782
           modified: 1753474316706
           isPrivate: false
@@ -194,6 +215,9 @@ collection:
         authentication:
           type: bearer
           token: ""
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -202,9 +226,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
   - name: Clientes
     meta:
-      id: fld_16a092c6bf18429f8b99e9708c0cb408
+      id: fld_367ee4be341a4cac8c8038670cc686d9
       created: 1753476761261
       modified: 1753476761261
       sortKey: -1753476761261
@@ -213,7 +240,7 @@ collection:
       - url: https://itsup-api.luispincay.com/api/clientes
         name: createCliente
         meta:
-          id: req_0bd4eaa03cfd42598bf0f940af27b3ec
+          id: req_bef468305b0c4e9aa6f199a20070140f
           created: 1753476765663
           modified: 1753477221523
           isPrivate: false
@@ -237,6 +264,9 @@ collection:
         authentication:
           type: bearer
           token: ""
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -248,7 +278,7 @@ collection:
       - url: https://itsup-api.luispincay.com/api/clientes
         name: getAllClientes
         meta:
-          id: req_6ece29ff0ddb4ba98d89b451bb78c76d
+          id: req_cc7742deb19745ee98521a5345409c30
           created: 1753477213740
           modified: 1753478382029
           isPrivate: false
@@ -261,6 +291,9 @@ collection:
         authentication:
           type: bearer
           token: ""
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -272,7 +305,7 @@ collection:
       - url: https://itsup-api.luispincay.com/api/clientes/2
         name: getClientesById
         meta:
-          id: req_a443f8de996b4e40ba140e85aa0864f9
+          id: req_51c5e6409dc84af796c00bbee0a3a0c9
           created: 1753477981802
           modified: 1753478038327
           isPrivate: false
@@ -285,6 +318,9 @@ collection:
         authentication:
           type: bearer
           token: ""
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -296,7 +332,7 @@ collection:
       - url: https://itsup-api.luispincay.com/api/clientes/2
         name: updateCliente
         meta:
-          id: req_c18d65f073da4b308fa37545c4a5babd
+          id: req_9d67dc8856f9449abaa774290515ba6b
           created: 1753478046146
           modified: 1753478191443
           isPrivate: false
@@ -320,6 +356,9 @@ collection:
         authentication:
           type: bearer
           token: ""
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -331,7 +370,7 @@ collection:
       - url: https://itsup-api.luispincay.com/api/clientes/1
         name: deleteCliente
         meta:
-          id: req_bc0101c607474ce4856ced1b62ba8c97
+          id: req_bf6c43cedce24b4794b9b0b2138e61df
           created: 1753478198350
           modified: 1753478375447
           isPrivate: false
@@ -344,6 +383,9 @@ collection:
         authentication:
           type: bearer
           token: ""
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -355,7 +397,7 @@ collection:
       - url: https://itsup-api.luispincay.com/api/clientes/1/activar
         name: activarCliente
         meta:
-          id: req_4600f4861f234400888a16ea3e356ecc
+          id: req_75c12102bef64efeb38b887795a46dd9
           created: 1753478315725
           modified: 1753478370918
           isPrivate: false
@@ -368,6 +410,55 @@ collection:
         authentication:
           type: bearer
           token: ""
+        scripts:
+          preRequest: ""
+          afterResponse: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+  - name: Equipos
+    meta:
+      id: fld_baa167a35abf4d44b9f4fd6ef35164ee
+      created: 1753489414142
+      modified: 1753489418150
+      sortKey: -1753489414142
+      description: ""
+    children:
+      - url: https://itsup-api.luispincay.com/api/equipos
+        name: createEquipo
+        meta:
+          id: req_48f052ca86c8469cbca010e079ad0d0a
+          created: 1753494398748
+          modified: 1753498389358
+          isPrivate: false
+          description: ""
+          sortKey: -1753494398748
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"marca":"ALTON",
+            	"modelo":"AKJ58",
+            	"numero_serie":"588956326",
+            	"descripcion":"Cafetera para 5 tazas"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzdWFyaW8iOjI0LCJub21icmVzIjoiQURNSU5JU1RSQURPUiBDRVNFIiwidGlwb3VzdWFyaW8iOiJBRE1JTkNFU0UiLCJpYXQiOjE3NTM0OTQ2ODcsImV4cCI6MTc1MzUwMTg4N30.Crxbo9rmGHoIyVL0NUALsu1XYaHdXOwRWBgqmcUXlA8
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -379,13 +470,13 @@ collection:
 cookieJar:
   name: Default Jar
   meta:
-    id: jar_f5a2832dbf62bfad5691e8c3ac4c64714e695371
+    id: jar_2daf7db6278e4aca9264b7bd83a9074c
     created: 1753452386638
     modified: 1753452386638
 environments:
   name: Base Environment
   meta:
-    id: env_f5a2832dbf62bfad5691e8c3ac4c64714e695371
+    id: env_a5a828fc80264caab7e7aaf06589dcae
     created: 1753144090269
     modified: 1753452405858
     isPrivate: false
