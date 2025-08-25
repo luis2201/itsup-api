@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth.routes');
+const permissionRoutes = require('./routes/permission.routes');
 const configuracionRoutes = require('./routes/configuracion.routes');
 const inscripcionRoutes = require('./routes/inscripcion.routes');
 const asistenciaRoutes = require('./routes/asistencia.routes');
@@ -59,6 +60,7 @@ app.get('/', (req, res) => {
 
 // Rutas
 app.use('/api/auth', authRoutes);
+app.use('/api/permissions', permissionRoutes);
 app.use('/api/configuraciones', configuracionRoutes);
 app.use('/api/inscripciones', inscripcionRoutes);
 app.use('/api/asistencias', asistenciaRoutes);
