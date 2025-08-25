@@ -43,11 +43,11 @@ app.use(cors(corsOptions));
 
 // Conectar a la base de datos
 db.connect((err) => {
-    if (err) {
-        console.error('Error conectando a la base de datos:', err);
-        process.exit(1);
-    }
-    console.log('Conectado a la base de datos MySQL');
+  if (err) {
+    console.error('Error conectando a la base de datos:', err);
+    process.exit(1);
+  }
+  console.log('Conectado a la base de datos MySQL');
 });
 
 // Configuración
@@ -55,7 +55,7 @@ app.use(express.json());
 
 // Ruta de prueba
 app.get('/', (req, res) => {
-    res.send('API funcionando correctamente');
+  res.send('API funcionando correctamente');
 });
 
 // Rutas
@@ -72,5 +72,5 @@ app.use('/api/actas-entrega', actaEntregaRoutes);
 // Iniciar el servidor
 const PORT = process.env.PORT || 4001;
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
