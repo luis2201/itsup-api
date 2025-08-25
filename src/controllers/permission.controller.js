@@ -1,10 +1,10 @@
-const Permissions = require('../models/permissions.model');
+const Permissions = require('../models/permission.model');
 
-const PermissionsController = {
+const PermissionController = {
     getMenusByRole: (req, res) => {
         const { Rol } = req.user; // Extraemos el rol desde el token JWT        
 
-        Permissions.getPermissionsByRole(Rol, (err, menuTree) => {
+        Permission.getPermissionsByRole(Rol, (err, menuTree) => {
             if (err) {
                 console.error("Error obteniendo permisos:", err);
                 return res.status(500).json({ error: 'Error al obtener permisos' });
@@ -15,4 +15,4 @@ const PermissionsController = {
     }
 };
 
-module.exports = PermissionsController;
+module.exports = PermissionController;
