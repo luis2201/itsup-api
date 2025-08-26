@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth.routes');
 const permissionRoutes = require('./routes/permission.routes');
 const configuracionRoutes = require('./routes/configuracion.routes');
+const periodoRoutes = require('./routes/periodo.routes');
 const inscripcionRoutes = require('./routes/inscripcion.routes');
 const asistenciaRoutes = require('./routes/asistencia.routes');
 const clienteRoutes = require('./routes/cliente.routes');
@@ -62,6 +63,7 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/permissions', permissionRoutes);
 app.use('/api/configuraciones', configuracionRoutes);
+app.use('/api/periodos', periodoRoutes);
 app.use('/api/inscripciones', inscripcionRoutes);
 app.use('/api/asistencias', asistenciaRoutes);
 app.use('/api/clientes', clienteRoutes);
