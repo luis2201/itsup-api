@@ -3,7 +3,11 @@ const db = require('../config/db');
 const Inscripcion = {
     // Obtener todas las inscripciones
     getAllInscripciones: (callback) => {
-        db.query("SELECT * FROM cese_inscripcion ORDER BY idperiodo", callback);
+        db.query(`SELECT I.idinscripcion, M.numero_matricula, CONCAT(E.apellido1,' ', E.apellido2,' ', E.nombre1,' ', E.nombre2)AS estudiante, I.fecha_inscripcion, I.estado 
+                  FROM cese_inscripcion I
+                    INNER JOIN tb_matricula M ON I.idmatricula = M.idmatricula
+                    INNER JOIN tb_estudiante E ON M.idestudiante = E.idestudiante
+                  ORDER BY estudiante, I.idperiodo;`, callback);
     },
 
     // Obtener inscripciones por periodo
