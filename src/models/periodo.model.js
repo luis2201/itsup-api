@@ -3,13 +3,13 @@ const db = require('../config/db');
 const Periodo = {
 
     getAllPeriodos: (callback) => {
-        db.query('SELECT * FROM tb_periodo ORDER BY fecha_inicio', callback)
+        db.query('SELECT * FROM tb_periodo ORDER BY fechainicio', callback);
     },
 
     createPeriodo: (periodoData, callback) => {
-        const { periodo, alias, fecha_inicio, fecha_fin } = periodoData;
-        
-        db.query('INSERT INTO tb_periodo (periodo, alias, fecha_inicio, fecha_fin) VALUES (?, ?, ?, ?)', [periodo, alias, fecha_inicio, fecha_fin], callback);
+        const { periodo, alias, fechainicio, fechafin } = periodoData;
+
+        db.query('INSERT INTO tb_periodo (periodo, alias, fechainicio, fechafin) VALUES (?, ?, ?, ?)', [periodo, alias, fechainicio, fechafin], callback);
     },
 
     getPeriodoById: (idperiodo, callback) => {
@@ -17,9 +17,9 @@ const Periodo = {
     },
 
     updatePeriodo: (idperiodo, periodoData, callback) => {
-        const { periodo, alias, fecha_inicio, fecha_fin } = periodoData;
+        const { periodo, alias, fechainicio, fechafin } = periodoData;
 
-        db.query('UPDATE tb_periodo SET periodo = ?, alias = ?, fecha_inicio = ?, fecha_fin = ? WHERE idperiodo = ?', [periodo, alias, fecha_inicio, fecha_fin, idperiodo], callback);
+        db.query('UPDATE tb_periodo SET periodo = ?, alias = ?, fechainicio = ?, fechafin = ? WHERE idperiodo = ?', [periodo, alias, fechainicio, fechafin, idperiodo], callback);
     },
 
     deletePeriodo: (idperiodo, callback) => {

@@ -20,7 +20,7 @@ const PeriodoController = {
             return res.status(400).json({ errors: errors.array() });
         }
 
-        const { periodo, alias, fecha_inicio, fecha_fin } = req.body;
+        const { periodo, alias, fechainicio, fechafin } = req.body;
 
         Periodo.findByIdPeriodo(idperiodo, (err, result) => {
             if (err) {
@@ -32,7 +32,7 @@ const PeriodoController = {
             }
 
             //Si no existe, crear nuevo periodo
-            Periodo.createPeriodo({ periodo, alias, fecha_inicio, fecha_fin }, (err) => {
+            Periodo.createPeriodo({ periodo, alias, fechainicio, fechafin }, (err) => {
                 if (err) {
                     return res.status(500).json({ error: 'Error al crear el periodo' });
                 }
@@ -58,7 +58,7 @@ const PeriodoController = {
 
     updatePeriodo: (req, res) => {
         const { idperiodo } = req.params;
-        const { periodo, alias, fecha_inicio, fecha_fin } = req.body;
+        const { periodo, alias, fechainicio, fechafin } = req.body;
 
         Periodo.getPeriodoById(idperiodo, (err, result) => {
             if (err) {
@@ -69,7 +69,7 @@ const PeriodoController = {
                 return res.status(404).json({ error: 'Ya existe un periodo registrado con anterioridad' });
             }
 
-            Periodo.updatePeriodo(idperiodo, { periodo, alias, fecha_inicio, fecha_fin }, (err) => {
+            Periodo.updatePeriodo(idperiodo, { periodo, alias, fechainicio, fechafin }, (err) => {
                 if (err) {
                     return res.status(500).json({ error: 'Error al actualizar el periodo' });
                 }
@@ -103,6 +103,6 @@ const PeriodoController = {
         });
     }
 
-}
+};
 
 module.exports = PeriodoController;
