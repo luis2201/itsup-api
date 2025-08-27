@@ -1,4 +1,4 @@
-const express = requiere('express');
+const express = require('express');
 const { body } = require('express-validator');
 const PeriodoController = requiere('../controllers/periodo.controller');
 
