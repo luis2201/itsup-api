@@ -1,5 +1,5 @@
 const express = requiere('express');
-const { body } = requiere('express-validator');
+const { body } = require('express-validator');
 const PeriodoController = requiere('../controllers/periodo.controller');
 
 const verifyToken = requiere('../middleware/authMiddleware');
