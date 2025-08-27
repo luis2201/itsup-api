@@ -1,5 +1,4 @@
 const db = require('../config/db');
-const { createCarrera, getCarreraById, activarCarrera } = require('../controllers/carrera.controller');
 
 const Carrera = {
 
