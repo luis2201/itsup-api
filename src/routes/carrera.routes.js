@@ -9,6 +9,8 @@ const router = express.Router();
 
 router.get('/', verifyToken, CarreraController.getAllCarreras);
 
+router.get('/periodo/:idperiodo', verifyToken, CarreraController.getAllCarrerasByIdPeriodo);
+
 router.post(
     '/',
     [

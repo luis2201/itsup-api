@@ -6,6 +6,15 @@ const Carrera = {
         db.query('SELECT * FROM tb_carrera ORDER BY carrera', callback);
     },
 
+    getAllCarrerasByIdPeriodo: (idperiodo, callback) => {
+        db.query(`SELECT C.idcarrera, C.carrera 
+                  FROM tb_malla L
+                    INNER JOIN tb_carrera C ON L.idcarrera = C.idcarrera
+                  WHERE L.idperiodo = ?
+                  GROUP BY C.carrera
+                  ORDER BY C.carrera`, [idperiodo], callback);
+    },
+
     findByCarrera: (carreraData, callback) => {
         db.query('SELECT * FROM tb_carrera WHERE carrera = ?', [carreraData], callback);
     },

@@ -13,6 +13,18 @@ const CarreraController = {
         });
     },
 
+    getAllCarrerasByIdPeriodo: (req, res) => {
+        const { idperiodo } = req.params;
+
+        Carrera.getAllCarrerasByIdPeriodo(idperiodo, (err, results) => {
+            if (err) {
+                return res.status(500).json({ error: 'Error al obtener las carreras por periodo' });
+            }
+
+            res.json(results);
+        });
+    },
+
     createCarrera: (req, res) => {
         const errors = validationResult(req);
         
