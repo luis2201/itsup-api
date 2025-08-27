@@ -32,8 +32,75 @@ const PeriodoController = {
             }
 
             //Si no existe, crear nuevo periodo
+            Periodo.createPeriodo({ periodo, alias, fecha_inicio, fecha_fin }, (err) => {
+                if (err) {
+                    return res.status(500).json({ error: 'Error al crear el periodo' });
+                }
+
+                return res.status(201).json({ message: 'Periodo creado exitosamente' });
+            });
+
             res.json(result);
         });
     },
+
+    getPeriodoById: (req, res) => {
+        const { idperiodo } = req.params;
+
+        Periodo.getPeriodoById(idperiodo, (err, result) => {
+            if (err) {
+                return res.status(500).json({ error: 'Error al buscar el periodo' });
+            }
+            
+            return res.json(result[0]);
+        });
+    },
+
+    updatePeriodo: (req, res) => {
+        const { idperiodo } = req.params;
+        const { periodo, alias, fecha_inicio, fecha_fin } = req.body;
+
+        Periodo.getPeriodoById(idperiodo, (err, result) => {
+            if (err) {
+                return res.status(500).json({ error: 'Error al buscar el periodo' });
+            }
+
+            if (result && result.length > 0 && result[0].idperiodo !== idperiodo) {
+                return res.status(404).json({ error: 'Ya existe un periodo registrado con anterioridad' });
+            }
+
+            Periodo.updatePeriodo(idperiodo, { periodo, alias, fecha_inicio, fecha_fin }, (err) => {
+                if (err) {
+                    return res.status(500).json({ error: 'Error al actualizar el periodo' });
+                }
+
+                return res.json({ message: 'Periodo actualizado exitosamente' });
+            });
+        });
+    },
+
+    deletePeriodo: (req, res) => {
+        const { idperiodo } = req.params;
+
+        Periodo.deletePeriodo(idperiodo, (err) => {
+            if (err) {
+                return res.status(500).json({ error: 'Error al eliminar el periodo' });
+            }
+
+            return res.json({ message: 'Periodo eliminado exitosamente' });
+        });
+    },
+
+    activarPeriodo: (req, res) => {
+        const { idperiodo } = req.params;
+
+        Periodo.activarPeriodo(idperiodo, (err) => {
+            if (err) {
+                return res.status(500).json({ error: 'Error al activar el periodo' });
+            }
+
+            return res.json({ message: 'Periodo activado exitosamente' });
+        });
+    }
 
 }
