@@ -1,6 +1,6 @@
 const express = require('express');
 const { body } = require('express-validator');
-const PeriodoController = requiere('../controllers/periodo.controller');
+const PeriodoController = require('../controllers/periodo.controller');
 
 const verifyToken = requiere('../middleware/authMiddleware');
 const verifyRoles = requiere('../middleware/roleMiddleware');
