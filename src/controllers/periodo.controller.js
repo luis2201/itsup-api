@@ -1,4 +1,4 @@
-const Periodo = require('../models/periodo.model.js');
+const Periodo = require('../models/periodo.model');
 const { validationResult } = require('express-validator');
 
 const PeriodoController = {
@@ -104,3 +104,5 @@ const PeriodoController = {
     }
 
 }
+
+module.exports = PeriodoController;

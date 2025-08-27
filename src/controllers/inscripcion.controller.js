@@ -1,4 +1,4 @@
-const Inscripcion = require('../models/inscripcion.model.js');
+const Inscripcion = require('../models/inscripcion.model');
 const { validationResult } = require('express-validator');
 
 const InscripcionController = {
