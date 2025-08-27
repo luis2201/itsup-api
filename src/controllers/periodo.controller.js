@@ -22,13 +22,13 @@ const PeriodoController = {
 
         const { periodo, alias, fechainicio, fechafin } = req.body;
 
-        Periodo.findByIdPeriodo(idperiodo, (err, result) => {
+        Periodo.findByPeriodo({ periodo, alias }, (err, result) => {
             if (err) {
                 return res.status(500).json({ error: 'Error al buscar el periodo' });
             }
 
             if(result && result.length > 0) {
-                return res.status(400).json({ error: 'El periodo ya existe' });
+                return res.status(400).json({ error: 'El periodo o el alias ya existe' });
             }
 
             //Si no existe, crear nuevo periodo

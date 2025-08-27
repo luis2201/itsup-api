@@ -1,9 +1,14 @@
 const db = require('../config/db'); 
+const { findByPeriodo } = require('./configuracion.model');
 
 const Periodo = {
 
     getAllPeriodos: (callback) => {
         db.query('SELECT * FROM tb_periodo ORDER BY fechainicio', callback);
+    },
+
+    findByPeriodo: (periodoData, callback) => {
+        db.query('SELECT * FROM tb_periodo WHERE periodo = ? OR alias = ?', [periodoData.periodo, periodoData.alias], callback);
     },
 
     createPeriodo: (periodoData, callback) => {

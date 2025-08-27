@@ -1,10 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+// ================ SISTEMA DE AUTENTICACIÓN =================== //
 const authRoutes = require('./routes/auth.routes');
 const permissionRoutes = require('./routes/permission.routes');
-const configuracionRoutes = require('./routes/configuracion.routes');
+// ============================ APPIT ========================== //
 const periodoRoutes = require('./routes/periodo.routes');
+const carreraRoutes = require('./routes/carrera.routes');
+// ============================ CESE ========================== //
+const configuracionRoutes = require('./routes/configuracion.routes');
 const inscripcionRoutes = require('./routes/inscripcion.routes');
 const asistenciaRoutes = require('./routes/asistencia.routes');
 const clienteRoutes = require('./routes/cliente.routes');
@@ -60,10 +64,14 @@ app.get('/', (req, res) => {
 });
 
 // Rutas
+// ================ SISTEMA DE AUTENTICACIÓN =================== //
 app.use('/api/auth', authRoutes);
 app.use('/api/permissions', permissionRoutes);
-app.use('/api/configuraciones', configuracionRoutes);
+// ============================ APPIT ========================== //
 app.use('/api/periodos', periodoRoutes);
+app.use('/api/carreras', carreraRoutes);
+// ============================ CESE ========================== //
+app.use('/api/configuraciones', configuracionRoutes);
 app.use('/api/inscripciones', inscripcionRoutes);
 app.use('/api/asistencias', asistenciaRoutes);
 app.use('/api/clientes', clienteRoutes);
