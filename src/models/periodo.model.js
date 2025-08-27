@@ -1,5 +1,4 @@
 const db = require('../config/db'); 
-const { findByPeriodo } = require('./configuracion.model');
 
 const Periodo = {
 
