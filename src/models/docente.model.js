@@ -30,7 +30,25 @@ const Docente = {
         const { numerodocumento, apellido1, apellido2, nombre1, nombre2 } = docenteData;
         db.query(`INSERT INTO tb_docente (numerodocumento, apellido1, apellido2, nombre1, nombre2) VALUES (?, ?, ?, ?, ?)`,
             [numerodocumento, apellido1, apellido2, nombre1, nombre2], callback);
-    }
+    },
+
+    getDocenteById: (iddocente, callback) => {
+        db.query(`SELECT * FROM tb_docente WHERE iddocente = ?`, [iddocente], callback);
+    },
+
+    updateDocente: (iddocente, docenteData, callback) => {
+        const { numerodocumento, apellido1, apellido2, nombre1, nombre2 } = docenteData;
+        db.query(`UPDATE tb_docente SET numerodocumento = ?, apellido1 = ?, apellido2 = ?, nombre1 = ?, nombre2 = ? WHERE iddocente = ?`,
+            [numerodocumento, apellido1, apellido2, nombre1, nombre2, iddocente], callback);
+    },
+
+    deleteDocente: (iddocente, callback) => {
+        db.query(`UPDATE tb_docente SET estado = 0 WHERE iddocente = ?`, [iddocente], callback);
+    },
+    
+    activarDocente: (iddocente, callback) => {
+        db.query(`UPDATE tb_docente SET estado = 1 WHERE iddocente = ?`, [iddocente], callback);
+    }    
 
 }
 module.exports = Docente;
