@@ -7,6 +7,7 @@ const permissionRoutes = require('./routes/permission.routes');
 // ============================ APPIT ========================== //
 const periodoRoutes = require('./routes/periodo.routes');
 const carreraRoutes = require('./routes/carrera.routes');
+const docenteRoutes = require('./routes/docente.routes');
 // ============================ CESE ========================== //
 const configuracionRoutes = require('./routes/configuracion.routes');
 const inscripcionRoutes = require('./routes/inscripcion.routes');
@@ -70,6 +71,7 @@ app.use('/api/permissions', permissionRoutes);
 // ============================ APPIT ========================== //
 app.use('/api/periodos', periodoRoutes);
 app.use('/api/carreras', carreraRoutes);
+app.use('/api/docentes', docenteRoutes);
 // ============================ CESE ========================== //
 app.use('/api/configuraciones', configuracionRoutes);
 app.use('/api/inscripciones', inscripcionRoutes);
