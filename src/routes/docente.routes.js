@@ -7,7 +7,7 @@ const verifyRoles = require('../middleware/roleMiddleware');
 
 const router = express.Router();
 
-router.get('/', verifyToken, DocenteController.getAllDocentes);
+router.get('/', verifyToken, verifyRoles(['ADMINCESE']), DocenteController.getAllDocentes);
 
 router.get('/periodo/:idperiodo/carrera/:idcarrera', verifyToken, DocenteController.getAllDocentesByIdPeriodoCarrera);
 

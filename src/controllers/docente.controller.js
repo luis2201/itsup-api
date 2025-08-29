@@ -117,4 +117,4 @@ const DocenteController = {
 
 }
 
-exports.DocenteController = DocenteController;
+module.exports = DocenteController;
