@@ -3,7 +3,12 @@ const db = require('../config/db');
 const Configuracion = {
     // Obtener todas las configuraciones
     getAllConfiguraciones: (callback) => {
-        db.query("SELECT * FROM cese_configuracion ORDER BY idperiodo", callback);
+        db.query(`SELECT C.idconfiguracion, P.periodo, R.carrera, CONCAT(D.apellido1,' ',D.apellido2,' ',D.nombre1,' ',D.nombre2)AS docente, C.horas_requeridas, C.estado
+                  FROM cese_configuracion C 
+                    INNER JOIN tb_periodo P ON C.idperiodo = P.idperiodo
+                    INNER JOIN tb_carrera R ON C.idcarrera = R.idcarrera
+                    INNER JOIN tb_docente D ON C.iddocente = D.iddocente
+                  ORDER BY docente;`, callback);
     },
 
     // Obtener configuraciones por periodo
