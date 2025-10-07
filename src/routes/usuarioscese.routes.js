@@ -17,15 +17,15 @@ router.post(
     body('tipousuario').notEmpty().withMessage('El tipo del usuario es obligatorio'),
     body('usuario').notEmpty().withMessage('El usuario es obligatorio'),
     body('contrasena').notEmpty().withMessage('La contraseña es obligatoria'),
-    UsuariosCeseController.createUsuariosCese
+    UsuariosCeseController.createUsuarioCese
 );
 
-router.get('/:id', verifyToken, verifyRoles(['ADMINCESE']), UsuariosCeseController.getUsuariosCeseById);
+router.get('/:id', verifyToken, verifyRoles(['ADMINCESE']), UsuariosCeseController.getUsuarioCeseById);
 
-router.put('/:id', verifyToken, verifyRoles(['ADMINCESE']), UsuariosCeseController.updateUsuariosCese);
+router.put('/:id', verifyToken, verifyRoles(['ADMINCESE']), UsuariosCeseController.updateUsuarioCese);
 
-router.delete('/:id', verifyToken, verifyRoles(['ADMINCESE']), UsuariosCeseController.deleteUsuariosCese);
+router.delete('/:id', verifyToken, verifyRoles(['ADMINCESE']), UsuariosCeseController.deleteUsuarioCese);
 
-router.put('/:id/activar', verifyToken, verifyRoles(['ADMINCESE']), UsuariosCeseController.activarUsuariosCese);
+router.put('/:id/activar', verifyToken, verifyRoles(['ADMINCESE']), UsuariosCeseController.activarUsuarioCese);
 
 module.exports = router;
