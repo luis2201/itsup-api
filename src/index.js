@@ -16,6 +16,7 @@ const clienteRoutes = require('./routes/cliente.routes');
 const equipoRoutes = require('./routes/equipo.routes');
 const actaRecepcionRoutes = require('./routes/actarecepcion.routes');
 const actaEntregaRoutes = require('./routes/actaentrega.routes');
+const usuariosCeseRoutes = require('./routes/usuarioscese.routes');
 
 const db = require('./config/db');
 const app = express();
@@ -80,6 +81,7 @@ app.use('/api/clientes', clienteRoutes);
 app.use('/api/equipos', equipoRoutes);
 app.use('/api/actas-recepcion', actaRecepcionRoutes);
 app.use('/api/actas-entrega', actaEntregaRoutes);
+app.use('/api/usuarios-cese', usuariosCeseRoutes);
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 4001;
