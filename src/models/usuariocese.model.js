@@ -11,9 +11,9 @@ const UsuarioCese = {
     },
 
     createUsuarioCese: (usuarioCeseData, callback) => {
-        const { nombres, tipousuario, usuario, contrasena } = usuarioCeseData;
+        const { nombres, tipousuario, correo, telefono, usuario, contrasena } = usuarioCeseData;
 
-        db.query('INSERT INTO tb_usuario (nombres, tipousuario, usuario, contrasena) VALUES (?, ?, ?, ?)', [nombres, tipousuario, usuario, contrasena], callback);
+        db.query('INSERT INTO tb_usuario (nombres, tipousuario, correo, telefono, usuario, contrasena) VALUES (?, ?, ?, ?, ?, ?)', [nombres, tipousuario, correo, telefono, usuario, contrasena], callback);
     },
 
     getUsuarioCeseById: (idusuario, callback) => {

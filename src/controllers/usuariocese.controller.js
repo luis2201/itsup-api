@@ -20,7 +20,7 @@ const UsuarioCeseController = {
             return res.status(400).json({ errors: errors.array() });
         }
 
-        const { nombres, tipousuario, usuario, contrasena } = req.body;
+        const { nombres, tipousuario, correo, telefono, usuario, contrasena } = req.body;
 
         UsuarioCese.findByUsuarioCese({ usuario }, (err, result) => {
             if (err) {
