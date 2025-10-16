@@ -17,6 +17,7 @@ const UsuarioCese = {
     },
 
     getUsuarioCeseById: (idusuario, callback) => {
+        console.log('ID Usuario:', idusuario); // Línea de depuración
         db.query('SELECT * FROM tb_usuario WHERE idusuario = ?', [idusuario], callback);
     },
 

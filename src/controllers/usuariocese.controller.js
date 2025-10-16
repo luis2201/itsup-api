@@ -43,8 +43,7 @@ const UsuarioCeseController = {
         });
     },
 
-    getUsuarioCeseById: (req, res) => {
-        console.log('ID Usuario:', req.params.id);
+    getUsuarioCeseById: (req, res) => {        
         const { idusuario } = req.params;
 
         UsuarioCese.getUsuarioCeseById(idusuario, (err, result) => {
