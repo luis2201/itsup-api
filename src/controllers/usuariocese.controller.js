@@ -56,10 +56,10 @@ const UsuarioCeseController = {
     },
 
     updateUsuarioCese: (req, res) => {
-        const { idusuario } = req.params;
+        const { id } = req.params;
         const { nombres, tipousuario, correo, telefono, usuario, contrasena } = req.body;
 
-        UsuarioCese.getUsuarioCeseById(idusuario, (err, result) => {
+        UsuarioCese.findByUsuarioCese(usuario, (err, result) => {
             if (err) {
                 return res.status(500).json({ error: 'Error al buscar el usuario' });
             }
