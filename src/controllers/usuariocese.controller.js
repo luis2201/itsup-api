@@ -14,6 +14,7 @@ const UsuarioCeseController = {
     },
 
     createUsuarioCese: (req, res) => {
+        console.log('Cuerpo de la solicitud:', req.body); // Depuración del cuerpo de la solicitud
         const errors = validationResult(req);
 
         if (!errors.isEmpty()) {
