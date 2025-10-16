@@ -21,9 +21,9 @@ const UsuarioCese = {
     },
 
     updateUsuarioCese: (idusuario, usuarioCeseData, callback) => {
-        const { nombres, tipousuario, usuario, contrasena } = usuarioCeseData;
+        const { nombres, tipousuario, correo, telefono, usuario, contrasena } = usuarioCeseData;
 
-        db.query('UPDATE tb_usuario SET nombres = ?, tipousuario = ?, usuario = ?, contrasena = ? WHERE idusuario = ?', [nombres, tipousuario, usuario, contrasena, idusuario], callback);
+        db.query('UPDATE tb_usuario SET nombres = ?, tipousuario = ?, correo = ?, telefono = ?, usuario = ?, contrasena = ? WHERE idusuario = ?', [nombres, tipousuario, correo, telefono, usuario, contrasena, idusuario], callback);
     },
 
     deleteUsuarioCese: (idusuario, callback) => {
