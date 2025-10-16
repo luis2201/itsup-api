@@ -16,8 +16,7 @@ const UsuarioCese = {
         db.query('INSERT INTO tb_usuario (nombres, tipousuario, correo, telefono, usuario, contrasena) VALUES (?, ?, ?, ?, ?, ?)', [nombres, tipousuario, correo, telefono, usuario, contrasena], callback);
     },
 
-    getUsuarioCeseById: (idusuario, callback) => {
-        console.log('ID Usuario:', idusuario); // Línea de depuración
+    getUsuarioCeseById: (idusuario, callback) => {        
         db.query('SELECT * FROM tb_usuario WHERE idusuario = ?', [idusuario], callback);
     },
 
