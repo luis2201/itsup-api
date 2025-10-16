@@ -13,8 +13,7 @@ const UsuarioCeseController = {
         });
     },
 
-    createUsuarioCese: (req, res) => {
-        console.log('Cuerpo de la solicitud:', req.body); // Depuración del cuerpo de la solicitud
+    createUsuarioCese: (req, res) => {        
         const errors = validationResult(req);
 
         if (!errors.isEmpty()) {
@@ -40,8 +39,7 @@ const UsuarioCeseController = {
 
                 return res.status(201).json({ message: 'Usuario creado exitosamente' });
             });
-
-            res.json(result);
+            
         });
     },
 
