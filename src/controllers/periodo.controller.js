@@ -45,9 +45,9 @@ const PeriodoController = {
     },
 
     getPeriodoById: (req, res) => {
-        const { idperiodo } = req.params;
+        const { id } = req.params;
 
-        Periodo.getPeriodoById(idperiodo, (err, result) => {
+        Periodo.getPeriodoById(id, (err, result) => {
             if (err) {
                 return res.status(500).json({ error: 'Error al buscar el periodo' });
             }
