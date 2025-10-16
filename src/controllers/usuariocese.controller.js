@@ -44,9 +44,9 @@ const UsuarioCeseController = {
     },
 
     getUsuarioCeseById: (req, res) => {        
-        const { idusuario } = req.params;
+        const { id } = req.params;
 
-        UsuarioCese.getUsuarioCeseById(idusuario, (err, result) => {
+        UsuarioCese.getUsuarioCeseById(id, (err, result) => {
             if (err) {
                 return res.status(500).json({ error: 'Error al buscar el usuario' });
             }
