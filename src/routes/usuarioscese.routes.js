@@ -9,14 +9,12 @@ const router = express.Router();
 
 router.get('/', verifyToken, UsuariosCeseController.getAllUsuariosCese);
 
-const { body } = require('express-validator');
-
 router.post(
   '/',
   verifyToken,
   verifyRoles(['ADMINCESE']),
   body('nombres').notEmpty().withMessage('El nombre del usuario es obligatorio'),
-  body('tipousuario').notEmpty().withMessage('El tipo del usuario es obligatorio'),  
+  body('tipousuario').notEmpty().withMessage('El tipo del usuario es obligatorio'),
   body('correo')
     .notEmpty().withMessage('El correo es obligatorio')
     .isEmail().withMessage('El correo no tiene un formato válido'),
