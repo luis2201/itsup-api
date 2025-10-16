@@ -32,7 +32,7 @@ const UsuarioCeseController = {
             }
 
             //Si no existe, crear nuevo usuario
-            UsuarioCese.createUsuarioCese({ nombres, tipousuario, usuario, contrasena }, (err) => {
+            UsuarioCese.createUsuarioCese({ nombres, tipousuario, correo, telefono, usuario, contrasena }, (err) => {
                 if (err) {
                     return res.status(500).json({ error: 'Error al crear el usuario' });
                 }
@@ -57,7 +57,7 @@ const UsuarioCeseController = {
 
     updateUsuarioCese: (req, res) => {
         const { idusuario } = req.params;
-        const { nombres, tipousuario, usuario, contrasena } = req.body;
+        const { nombres, tipousuario, correo, telefono, usuario, contrasena } = req.body;
 
         UsuarioCese.getUsuarioCeseById(idusuario, (err, result) => {
             if (err) {
@@ -68,7 +68,7 @@ const UsuarioCeseController = {
                 return res.status(404).json({ error: 'Ya existe un usuario registrado con anterioridad' });
             }
 
-            UsuarioCese.updateUsuarioCese(idusuario, { nombres, tipousuario, usuario, contrasena }, (err) => {
+            UsuarioCese.updateUsuarioCese(idusuario, { nombres, tipousuario, correo, telefono, usuario, contrasena }, (err) => {
                 if (err) {
                     return res.status(500).json({ error: 'Error al actualizar el usuario' });
                 }
