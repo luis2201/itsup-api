@@ -79,9 +79,9 @@ const UsuarioCeseController = {
     },
 
     deleteUsuarioCese: (req, res) => {
-        const { idusuario } = req.params;
+        const { id } = req.params;
 
-        UsuarioCese.deleteUsuarioCese(idusuario, (err) => {
+        UsuarioCese.deleteUsuarioCese(id, (err) => {
             if (err) {
                 return res.status(500).json({ error: 'Error al eliminar el usuario' });
             }
@@ -91,9 +91,9 @@ const UsuarioCeseController = {
     },
 
     activarUsuarioCese: (req, res) => {
-        const { idusuario } = req.params;
+        const { id } = req.params;
 
-        UsuarioCese.activarUsuarioCese(idusuario, (err) => {
+        UsuarioCese.activarUsuarioCese(id, (err) => {
             if (err) {
                 return res.status(500).json({ error: 'Error al activar el usuario' });
             }
