@@ -64,11 +64,11 @@ const UsuarioCeseController = {
                 return res.status(500).json({ error: 'Error al buscar el usuario' });
             }
 
-            if (result && result.length > 0 && result[0].idusuario !== idusuario) {
+            if (result && result.length > 0 && result[0].idusuario !== id) {
                 return res.status(404).json({ error: 'Ya existe un usuario registrado con anterioridad' });
             }
 
-            UsuarioCese.updateUsuarioCese(idusuario, { nombres, tipousuario, correo, telefono, usuario, contrasena }, (err) => {
+            UsuarioCese.updateUsuarioCese(id, { nombres, tipousuario, correo, telefono, usuario, contrasena }, (err) => {
                 if (err) {
                     return res.status(500).json({ error: 'Error al actualizar el usuario' });
                 }
